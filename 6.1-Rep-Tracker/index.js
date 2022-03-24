@@ -1,0 +1,16 @@
+let reps;
+let serializedReps = localStorage.getItem('reps');
+
+if (serializedReps === null) {
+    reps = [];
+} else {
+    reps = JSON.parse(serializedReps);
+}
+
+let newReps = window.prompt('Enter your number of reps: ');
+reps.push(newReps);
+
+renderChart(reps);
+
+serializedReps = JSON.stringify(reps);
+localStorage.setItem('reps', serializedReps);
